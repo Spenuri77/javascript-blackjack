@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('background.png') no-repeat center center fixed;;
+    background-size: cover;
+}
+
+.pop-up{
+    display: none;
+}
+
+.pop-up.active{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgb(0, 0, 0, .75);
+    color: white;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.play-now{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.play-now i{
+    animation: icon-animation 1s ease-in-out infinite;
+}
+
+.play-btn i{
+    animation: none;
+}
+
+.main{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 135px;
+}
+
+.scores{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: 20px;
+    color: white;
+}
+
+.result-stake{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+}
+
+.croupier, .player{
+    position: relative;
+    display: flex;
+    gap: 20px;
+    padding: 0px 50px 0px 50px;
+}
+
+.flip-card{
+    background-color: transparent;
+    width: 140px;
+    height: 190px;
+    perspective: 1000px;
+}
+  
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+  
+.flip-card-front{
+    color: black;
+}
+  
+.flip-card-back{
+    color: white;
+    transform: rotateY(180deg);
+}
+
+#result{
+    color: white;
+}
+
+#croupier-score, #player-score{
+    position: absolute;
+    top: -32px;
+    left: -32px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1e1e1e;
+    color: white;
+    font-size: 25px;
+    border-radius: 50%;
+    border: 3px rebeccapurple solid;
+    outline: 3px solid #1e1e1e;
+    box-shadow: 0px 0px 12px 5px rgba(102, 51, 153, .75);
+}
+
+.buttons{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+}
+
+.buttons button, .pop-up button{
+    cursor: pointer;
+    width: 165px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    text-shadow: 0px 0px 10px rgb(27, 27, 27);
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.buttons button:hover, .pop-up button:hover{
+    color: #d2d2d2;
+}
+
+.hit-btn{
+    background: linear-gradient(180deg, rgba(24,238,0,1) 0%, rgba(6,73,4,1) 100%);
+    border: 3px solid rgb(4, 135, 0);
+    outline: 3px  outset rgb(24, 238, 0);
+}
+
+.stand-btn{
+    background: linear-gradient(180deg, rgba(238,0,0,1) 0%, rgba(64,0,0,1) 100%);
+    border: 3px solid rgb(142, 0, 0);
+    outline: 2px  outset rgb(238, 0, 0);
+}
+
+.double-btn{
+    background: linear-gradient(180deg, rgba(0,185,255,1) 0%, rgba(0,43,60,1) 100%);
+    border: 3px solid rgb(0, 97, 136);
+    outline: 2px  outset rgb(0, 185, 255);
+}
+
+.play-btn{
+    background: linear-gradient(180deg, rgba(255,43,240,1) 0%, rgba(54,0,73,1) 100%);
+    border: 3px solid rgb(97, 0, 132);
+    outline: 2px  outset rgb(255, 43, 240);
+}
+
+.player img, .croupier img{
+    animation: img-animation .4s ease-in-out;
+}
+
+@keyframes img-animation{
+    0%{
+        scale: 0;
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes icon-animation{
+    0%{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(0px)
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-10px)
+    }
+}

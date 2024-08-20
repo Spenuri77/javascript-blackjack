@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Blackjack Online</title>
+</head>
+<body>
+    <div class="pop-up active" id="pop-up">
+      <img src="logo.png">
+      <div class="play-now">
+        <p id="result">Play now!</p>
+        <i class="fa-solid fa-arrow-down"></i>
+        <button class="play-btn" onclick="play()"><i class="fa-solid fa-play"></i>Play</button>
+      </div>
+    </div>
+
+    <section id="main" class="main">
+      <div id="croupier" class="croupier">
+        <p id="croupier-score">0</p>
+        <img id="croupier-1" src="">
+        <div id="flip-card" class="flip-card">
+            <div id="flip-card-inner" class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Cards/cardBack.png">
+              </div>
+              <div class="flip-card-back">
+                <img id="croupier-2" src="">
+              </div>
+            </div>
+        </div>
+      </div>
+      <div id="player" class="player">
+        <p id="player-score">0</p>
+      </div>
+
+      <div class="result-stake">
+        <p id="stake"></p>
+      </div>
+    </section>
+    <div id="buttons" class="buttons">
+      <button type="button" id="hit-btn" class="hit-btn" onclick="hit()" disabled><i class="fa-solid fa-hand-point-up"></i>Hit</button>
+      <button type="button" id="stand-btn" class="stand-btn" onclick="stand()" disabled><i class="fa-solid fa-hand"></i>Stand</button>
+      <button type="button" id="double-btn" class="double-btn" onclick="double()" disabled><i class="fa-solid fa-angles-up"></i>Double</button>
+    </div>
+</body>
+</html>
